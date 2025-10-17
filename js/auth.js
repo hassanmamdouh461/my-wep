@@ -63,8 +63,13 @@ function setButtonLoading(button, isLoading) {
 // ================================
 
 if (document.getElementById('registerForm')) {
+    console.log('📝 صفحة التسجيل تم العثور عليها - تفعيل الكود...');
+    
     const registerForm = document.getElementById('registerForm');
     const registerBtn = document.getElementById('registerBtn');
+    
+    console.log('✅ registerForm:', registerForm);
+    console.log('✅ registerBtn:', registerBtn);
     
     // إعداد تبديل كلمة المرور
     setupPasswordToggle('togglePassword', 'password');
@@ -73,6 +78,8 @@ if (document.getElementById('registerForm')) {
     // معالجة نموذج التسجيل
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        console.log('🎯 تم الضغط على زر التسجيل!');
         
         const fullName = document.getElementById('fullName').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -241,6 +248,8 @@ if (document.getElementById('registerForm')) {
             }
         });
     }
+} else {
+    console.log('⚠️ registerForm غير موجود في الصفحة');
 }
 
 // ================================
@@ -396,3 +405,6 @@ function updateNavButtons(isLoggedIn, user = null) {
         }
     }
 }
+
+// تأكيد نهاية الملف
+console.log('🏁 auth.js تم تحميله بالكامل - نهاية الملف');
