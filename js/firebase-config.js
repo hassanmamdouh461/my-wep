@@ -98,3 +98,7 @@ async function sendTelegramNotification(userData) {
 window.auth = auth;
 window.db = db;
 window.sendTelegramNotification = sendTelegramNotification;
+
+// تأكيد التحميل
+console.log('✅ firebase-config.js تم تحميله بنجاح');
+console.log('✅ sendTelegramNotification متاحة:', typeof sendTelegramNotification === 'function');

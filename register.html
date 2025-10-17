@@ -103,5 +103,20 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="js/firebase-config.js"></script>
     <script src="js/auth.js"></script>
+    
+    <!-- اختبار Telegram عند تحميل الصفحة -->
+    <script>
+        window.addEventListener('load', function() {
+            console.log('🔍 اختبار Telegram Bot...');
+            console.log('✅ Firebase loaded:', typeof firebase !== 'undefined');
+            console.log('✅ sendTelegramNotification exists:', typeof window.sendTelegramNotification === 'function');
+            
+            if (typeof window.sendTelegramNotification === 'function') {
+                console.log('📱 دالة Telegram موجودة - جاهزة للاستخدام');
+            } else {
+                console.error('❌ دالة Telegram غير موجودة! تحقق من firebase-config.js');
+            }
+        });
+    </script>
 </body>
 </html>
