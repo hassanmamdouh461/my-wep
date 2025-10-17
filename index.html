@@ -22,11 +22,8 @@
                 </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="courses.html">الدورات</a></li>
                     <li><a href="videos.html">الفيديوهات</a></li>
                     <li><a href="articles.html">المقالات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
                 <div class="nav-buttons">
                     <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
@@ -43,8 +40,8 @@
                 <h1 class="hero-title">تعلم بطريقة أفضل مع أكاديميتي</h1>
                 <p class="hero-description">منصة تعليمية شاملة توفر لك أفضل الدورات التعليمية والمقالات والفيديوهات في جميع المجالات</p>
                 <div class="hero-buttons">
-                    <a href="courses.html" class="btn btn-primary btn-lg">ابدأ التعلم الآن</a>
-                    <a href="videos.html" class="btn btn-outline btn-lg">شاهد الفيديوهات</a>
+                    <a href="videos.html" class="btn btn-primary btn-lg">ابدأ التعلم الآن</a>
+                    <a href="articles.html" class="btn btn-outline btn-lg">تصفح المقالات</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -338,10 +335,17 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="js/firebase-config.js"></script>
     <script>
-        // التحقق من حالة المستخدم
+        // التحقق من حالة المستخدم وحماية الصفحة
         auth.onAuthStateChanged((user) => {
+            if (!user) {
+                // إذا لم يكن المستخدم مسجل دخول، توجيهه لصفحة تسجيل الدخول
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // إذا كان مسجل دخول، عرض معلوماته
             const navButtons = document.querySelector('.nav-buttons');
-            if (navButtons && user) {
+            if (navButtons) {
                 navButtons.innerHTML = `
                     <div class="user-menu" style="display: flex; align-items: center; gap: 1rem;">
                         <span style="color: var(--text-color);">${user.displayName || user.email}</span>
@@ -351,7 +355,7 @@
                 
                 document.getElementById('logoutBtn').addEventListener('click', async () => {
                     await auth.signOut();
-                    window.location.reload();
+                    window.location.href = 'login.html';
                 });
             }
         });

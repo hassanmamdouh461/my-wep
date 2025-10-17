@@ -23,15 +23,11 @@
                 </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="courses.html">الدورات</a></li>
                     <li><a href="videos.html">الفيديوهات</a></li>
                     <li><a href="articles.html" class="active">المقالات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
                 <div class="nav-buttons">
-                    <a href="#" class="btn btn-outline">تسجيل الدخول</a>
-                    <a href="#" class="btn btn-primary">التسجيل</a>
+                    <!-- سيتم تحديثها بعد تسجيل الدخول -->
                 </div>
             </div>
         </div>
@@ -174,5 +170,36 @@
     </footer>
 
     <script src="js/script.js"></script>
+    
+    <!-- Firebase Auth Check -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script>
+        // حماية الصفحة - توجيه لللوجن إذا لم يكن مسجل دخول
+        auth.onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // عرض معلومات المستخدم
+            const navButtons = document.querySelector('.nav-buttons');
+            if (navButtons) {
+                navButtons.innerHTML = `
+                    <div class="user-menu" style="display: flex; align-items: center; gap: 1rem;">
+                        <span style="color: var(--text-color);">${user.displayName || user.email}</span>
+                        <button class="btn btn-outline" id="logoutBtn">تسجيل الخروج</button>
+                    </div>
+                `;
+                
+                document.getElementById('logoutBtn').addEventListener('click', async () => {
+                    await auth.signOut();
+                    window.location.href = 'login.html';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
