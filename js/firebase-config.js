@@ -41,6 +41,9 @@ const TELEGRAM_CHAT_ID = '6479051123';
 
 // دالة إرسال رسالة إلى تليجرام
 async function sendTelegramNotification(userData) {
+    console.log('🔔 بدء إرسال إشعار Telegram...');
+    console.log('📊 البيانات المرسلة:', userData);
+    
     const message = `
 🎓 *تسجيل مستخدم جديد في أكاديميتي*
 
@@ -58,6 +61,9 @@ async function sendTelegramNotification(userData) {
 
     const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     
+    console.log('🌐 URL:', url);
+    console.log('💬 الرسالة:', message);
+    
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -71,13 +77,20 @@ async function sendTelegramNotification(userData) {
             })
         });
 
+        const responseData = await response.json();
+        console.log('📥 استجابة Telegram:', responseData);
+
         if (!response.ok) {
-            console.error('فشل إرسال الإشعار إلى تليجرام');
+            console.error('❌ فشل إرسال الإشعار - Status:', response.status);
+            console.error('❌ تفاصيل الخطأ:', responseData);
+            throw new Error(`Telegram API Error: ${responseData.description || 'Unknown error'}`);
         } else {
-            console.log('تم إرسال الإشعار إلى تليجرام بنجاح');
+            console.log('✅ تم إرسال الإشعار إلى تليجرام بنجاح!');
+            return responseData;
         }
     } catch (error) {
-        console.error('خطأ في إرسال الإشعار:', error);
+        console.error('💥 خطأ في إرسال الإشعار:', error);
+        throw error;
     }
 }
 

