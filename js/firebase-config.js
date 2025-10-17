@@ -8,12 +8,12 @@
 // 4. في قسم "Your apps" اختر Web app (</>) وانسخ الإعدادات
 
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyCOju8ZxRa5X3OO0rF3XKK32zpoiVsFLdI",
+    authDomain: "academy-website-f7c83.firebaseapp.com",
+    projectId: "academy-website-f7c83",
+    storageBucket: "academy-website-f7c83.firebasestorage.app",
+    messagingSenderId: "918853790493",
+    appId: "1:918853790493:web:2153902e0134d8396fcff4"
 };
 
 // تهيئة Firebase
