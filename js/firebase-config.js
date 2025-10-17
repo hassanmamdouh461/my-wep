@@ -36,8 +36,8 @@ const db = firebase.firestore();
 // 2. أرسل /start
 // 3. انسخ الـ ID الخاص بك
 
-const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN';
-const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
+const TELEGRAM_BOT_TOKEN = '8498245959:AAE9P-_7yutJlLBzAkrWLn07yZKILDF4f1k';
+const TELEGRAM_CHAT_ID = '6479051123';
 
 // دالة إرسال رسالة إلى تليجرام
 async function sendTelegramNotification(userData) {
