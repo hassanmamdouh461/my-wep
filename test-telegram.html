@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار Telegram Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .info-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .info-box strong {
+            color: #667eea;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .loading {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 اختبار Telegram Bot</h1>
+        
+        <div class="info-box">
+            <p><strong>Bot Token:</strong><br>8498245959:AAE9P-_7yutJlLBzAkrWLn07yZKILDF4f1k</p>
+            <p style="margin-top: 10px;"><strong>Chat ID:</strong><br>6479051123</p>
+        </div>
+        
+        <button id="testBtn" onclick="testTelegram()">إرسال رسالة تجريبية</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function testTelegram() {
+            const botToken = '8498245959:AAE9P-_7yutJlLBzAkrWLn07yZKILDF4f1k';
+            const chatId = '6479051123';
+            const resultDiv = document.getElementById('result');
+            const testBtn = document.getElementById('testBtn');
+            
+            // عرض حالة التحميل
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'loading';
+            resultDiv.innerHTML = '⏳ جاري الإرسال...';
+            testBtn.disabled = true;
+            
+            const message = `
+🧪 *رسالة اختبار من الموقع*
+
+⏰ الوقت: ${new Date().toLocaleString('ar-SA')}
+✅ إذا وصلتك هذه الرسالة، معناها البوت يعمل بنجاح!
+
+---
+🔧 اختبار من: test-telegram.html
+            `.trim();
+            
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            
+            console.log('📤 إرسال الطلب إلى:', url);
+            console.log('💬 الرسالة:', message);
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                console.log('📥 الاستجابة:', data);
+                
+                if (response.ok && data.ok) {
+                    resultDiv.className = 'success';
+                    resultDiv.innerHTML = `
+                        <strong>✅ تم الإرسال بنجاح!</strong><br><br>
+                        تفقد تليجرام الآن - يجب أن تكون وصلتك الرسالة!<br><br>
+                        <strong>تفاصيل:</strong>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                } else {
+                    resultDiv.className = 'error';
+                    resultDiv.innerHTML = `
+                        <strong>❌ فشل الإرسال!</strong><br><br>
+                        <strong>السبب المحتمل:</strong><br>
+                        ${getErrorMessage(data)}<br><br>
+                        <strong>تفاصيل الخطأ:</strong>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                console.error('💥 خطأ:', error);
+                resultDiv.className = 'error';
+                resultDiv.innerHTML = `
+                    <strong>💥 خطأ في الاتصال!</strong><br><br>
+                    <strong>الخطأ:</strong> ${error.message}<br><br>
+                    <strong>الأسباب المحتملة:</strong><br>
+                    • مشكلة في الإنترنت<br>
+                    • Telegram API محجوب<br>
+                    • مشكلة CORS<br><br>
+                    <strong>تفاصيل:</strong>
+                    <pre>${error.stack}</pre>
+                `;
+            } finally {
+                testBtn.disabled = false;
+            }
+        }
+        
+        function getErrorMessage(data) {
+            if (!data.description) return 'خطأ غير معروف';
+            
+            const desc = data.description.toLowerCase();
+            
+            if (desc.includes('unauthorized') || desc.includes('not found')) {
+                return '🔑 Bot Token خاطئ - تأكد من Token البوت';
+            } else if (desc.includes('chat not found')) {
+                return '💬 Chat ID خاطئ أو لم ترسل /start للبوت بعد';
+            } else if (desc.includes('blocked')) {
+                return '🚫 البوت محظور - افتح المحادثة مع البوت وأرسل /start';
+            } else {
+                return data.description;
+            }
+        }
+        
+        // اختبار تلقائي عند فتح الصفحة
+        console.log('🔍 جاهز للاختبار!');
+        console.log('اضغط على الزر لاختبار إرسال رسالة إلى Telegram');
+    </script>
+</body>
+</html>

