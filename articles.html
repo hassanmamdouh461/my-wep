@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="اقرأ أحدث المقالات والدروس التعليمية في مختلف المجالات">
+    <title>المقالات التعليمية - أكاديميتي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>أكاديميتي</span>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="courses.html">الدورات</a></li>
+                    <li><a href="videos.html">الفيديوهات</a></li>
+                    <li><a href="articles.html" class="active">المقالات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="#" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="#" class="btn btn-primary">التسجيل</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>المقالات التعليمية</h1>
+            <p>اقرأ أحدث المقالات والنصائح التعليمية من خبراء في مختلف المجالات</p>
+        </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="search-filter-section">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="ابحث عن مقال...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="programming">برمجة</button>
+                <button class="filter-btn" data-filter="design">تصميم</button>
+                <button class="filter-btn" data-filter="business">أعمال</button>
+                <button class="filter-btn" data-filter="technology">تقنية</button>
+                <button class="filter-btn" data-filter="ai">ذكاء اصطناعي</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="articles-section">
+        <div class="container">
+            <h2 class="section-title">أحدث المقالات</h2>
+            <div class="articles-list">
+                <article class="article-item" data-category="programming">
+                    <div class="article-image">
+                        <img src="https://via.placeholder.com/400x250/4CAF50/ffffff?text=Article" alt="مقال">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="fas fa-calendar"></i> منذ يومين</span>
+                            <span><i class="fas fa-eye"></i> 3,456 مشاهدة</span>
+                        </div>
+                        <h3>كيف تبدأ رحلتك في تعلم البرمجة</h3>
+                        <p>دليل شامل للمبتدئين الذين يرغبون في البدء بتعلم البرمجة من الصفر</p>
+                        <a href="#" class="article-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </article>
+
+                <article class="article-item" data-category="ai">
+                    <div class="article-image">
+                        <img src="https://via.placeholder.com/400x250/2196F3/ffffff?text=AI" alt="مقال">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="fas fa-calendar"></i> منذ 3 أيام</span>
+                            <span><i class="fas fa-eye"></i> 6,789 مشاهدة</span>
+                        </div>
+                        <h3>مستقبل الذكاء الاصطناعي</h3>
+                        <p>نظرة على أحدث التطورات في مجال الذكاء الاصطناعي وتأثيره</p>
+                        <a href="#" class="article-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </article>
+
+                <article class="article-item" data-category="design">
+                    <div class="article-image">
+                        <img src="https://via.placeholder.com/400x250/FF9800/ffffff?text=Design" alt="مقال">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span><i class="fas fa-calendar"></i> منذ أسبوع</span>
+                            <span><i class="fas fa-eye"></i> 2,345 مشاهدة</span>
+                        </div>
+                        <h3>مبادئ التصميم الجرافيكي</h3>
+                        <p>تعلم المبادئ الأساسية لإنشاء تصاميم احترافية ومميزة</p>
+                        <a href="#" class="article-link">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-cta">
+                <button class="btn btn-outline load-more-btn">تحميل المزيد</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>أكاديميتي</span>
+                    </div>
+                    <p>منصة تعليمية رائدة توفر أفضل المحتوى التعليمي في العالم العربي</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="videos.html">الفيديوهات</a></li>
+                        <li><a href="articles.html">المقالات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +966 XX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@academy.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 أكاديميتي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

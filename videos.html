@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شاهد أفضل الفيديوهات التعليمية في مختلف المجالات">
+    <title>الفيديوهات التعليمية - أكاديميتي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>أكاديميتي</span>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="courses.html">الدورات</a></li>
+                    <li><a href="videos.html" class="active">الفيديوهات</a></li>
+                    <li><a href="articles.html">المقالات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="#" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="#" class="btn btn-primary">التسجيل</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>الفيديوهات التعليمية</h1>
+            <p>شاهد أفضل الفيديوهات التعليمية عالية الجودة</p>
+        </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="search-filter-section">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="ابحث عن فيديو...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="programming">برمجة</button>
+                <button class="filter-btn" data-filter="design">تصميم</button>
+                <button class="filter-btn" data-filter="business">أعمال</button>
+                <button class="filter-btn" data-filter="languages">لغات</button>
+                <button class="filter-btn" data-filter="marketing">تسويق</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Grid -->
+    <section class="videos-section">
+        <div class="container">
+            <div class="videos-grid">
+                <!-- Video Item 1 -->
+                <div class="video-card" data-category="programming">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x250/4CAF50/ffffff?text=HTML+CSS" alt="فيديو">
+                        <div class="video-duration">15:30</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye"></i> 15,234 مشاهدة</span>
+                            <span><i class="fas fa-calendar"></i> منذ يومين</span>
+                        </div>
+                        <h3>مقدمة في HTML و CSS للمبتدئين</h3>
+                        <p>تعلم أساسيات تطوير الويب من الصفر</p>
+                        <div class="video-footer">
+                            <div class="video-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>أحمد محمد</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="action-btn"><i class="fas fa-thumbs-up"></i> 234</button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 2 -->
+                <div class="video-card" data-category="programming">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x250/2196F3/ffffff?text=JavaScript" alt="فيديو">
+                        <div class="video-duration">22:45</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye"></i> 23,567 مشاهدة</span>
+                            <span><i class="fas fa-calendar"></i> منذ 3 أيام</span>
+                        </div>
+                        <h3>JavaScript للمبتدئين - الدرس الأول</h3>
+                        <p>ابدأ رحلتك في تعلم JavaScript من الأساسيات</p>
+                        <div class="video-footer">
+                            <div class="video-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>سارة أحمد</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="action-btn"><i class="fas fa-thumbs-up"></i> 567</button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 3 -->
+                <div class="video-card" data-category="design">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x250/FF9800/ffffff?text=Photoshop" alt="فيديو">
+                        <div class="video-duration">18:20</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye"></i> 12,890 مشاهدة</span>
+                            <span><i class="fas fa-calendar"></i> منذ أسبوع</span>
+                        </div>
+                        <h3>تعلم Photoshop من الصفر</h3>
+                        <p>دليل شامل لتعلم برنامج فوتوشوب للمبتدئين</p>
+                        <div class="video-footer">
+                            <div class="video-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>محمد علي</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="action-btn"><i class="fas fa-thumbs-up"></i> 432</button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 4 -->
+                <div class="video-card" data-category="programming">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x250/9C27B0/ffffff?text=Python" alt="فيديو">
+                        <div class="video-duration">25:15</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye"></i> 34,567 مشاهدة</span>
+                            <span><i class="fas fa-calendar"></i> منذ أسبوعين</span>
+                        </div>
+                        <h3>أساسيات Python للمبتدئين</h3>
+                        <p>تعلم لغة البايثون بطريقة سهلة ومبسطة</p>
+                        <div class="video-footer">
+                            <div class="video-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>خالد يوسف</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="action-btn"><i class="fas fa-thumbs-up"></i> 789</button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 5 -->
+                <div class="video-card" data-category="business">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x250/E91E63/ffffff?text=Business" alt="فيديو">
+                        <div class="video-duration">30:00</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye"></i> 8,234 مشاهدة</span>
+                            <span><i class="fas fa-calendar"></i> منذ 3 أسابيع</span>
+                        </div>
+                        <h3>أساسيات إدارة الأعمال</h3>
+                        <p>تعلم المبادئ الأساسية لإدارة المشاريع</p>
+                        <div class="video-footer">
+                            <div class="video-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>فاطمة حسن</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="action-btn"><i class="fas fa-thumbs-up"></i> 321</button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 6 -->
+                <div class="video-card" data-category="marketing">
+                    <div class="video-thumbnail">
+                        <img src="https://via.placeholder.com/400x250/00BCD4/ffffff?text=Marketing" alt="فيديو">
+                        <div class="video-duration">20:30</div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye"></i> 17,890 مشاهدة</span>
+                            <span><i class="fas fa-calendar"></i> منذ شهر</span>
+                        </div>
+                        <h3>التسويق الرقمي للمبتدئين</h3>
+                        <p>كل ما تحتاج معرفته عن التسويق الإلكتروني</p>
+                        <div class="video-footer">
+                            <div class="video-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>عمر السيد</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="action-btn"><i class="fas fa-thumbs-up"></i> 654</button>
+                                <button class="action-btn"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="section-cta">
+                <button class="btn btn-outline load-more-btn">تحميل المزيد</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>أكاديميتي</span>
+                    </div>
+                    <p>منصة تعليمية رائدة توفر أفضل المحتوى التعليمي في العالم العربي</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="videos.html">الفيديوهات</a></li>
+                        <li><a href="articles.html">المقالات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +966 XX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@academy.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 أكاديميتي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

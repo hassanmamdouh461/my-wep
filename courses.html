@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تصفح أفضل الدورات التعليمية في مختلف المجالات">
+    <title>الدورات التعليمية - أكاديميتي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>أكاديميتي</span>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="courses.html" class="active">الدورات</a></li>
+                    <li><a href="videos.html">الفيديوهات</a></li>
+                    <li><a href="articles.html">المقالات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="#" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="#" class="btn btn-primary">التسجيل</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>الدورات التعليمية</h1>
+            <p>اختر من بين أفضل الدورات التعليمية المتخصصة في مختلف المجالات</p>
+        </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="search-filter-section">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="ابحث عن دورة...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="programming">برمجة</button>
+                <button class="filter-btn" data-filter="design">تصميم</button>
+                <button class="filter-btn" data-filter="business">أعمال</button>
+                <button class="filter-btn" data-filter="marketing">تسويق</button>
+                <button class="filter-btn" data-filter="languages">لغات</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Grid -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="courses-grid">
+                <div class="course-card" data-category="programming">
+                    <div class="course-image">
+                        <img src="https://via.placeholder.com/400x250/4CAF50/ffffff?text=Web+Dev" alt="دورة">
+                        <span class="course-badge">جديد</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-video"></i> 45 فيديو</span>
+                            <span><i class="fas fa-clock"></i> 20 ساعة</span>
+                        </div>
+                        <h3>تطوير الويب الكامل</h3>
+                        <p>تعلم HTML, CSS, JavaScript وبناء مواقع ويب احترافية من الصفر</p>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                                <span class="rating-count">(1,234)</span>
+                            </div>
+                            <div class="course-price">299 ريال</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="programming">
+                    <div class="course-image">
+                        <img src="https://via.placeholder.com/400x250/2196F3/ffffff?text=Python" alt="دورة">
+                        <span class="course-badge">الأكثر مبيعاً</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-video"></i> 60 فيديو</span>
+                            <span><i class="fas fa-clock"></i> 30 ساعة</span>
+                        </div>
+                        <h3>برمجة بايثون من الصفر</h3>
+                        <p>دورة شاملة لتعلم لغة بايثون وتطبيقاتها العملية</p>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="rating-count">(2,567)</span>
+                            </div>
+                            <div class="course-price">349 ريال</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="design">
+                    <div class="course-image">
+                        <img src="https://via.placeholder.com/400x250/FF9800/ffffff?text=Design" alt="دورة">
+                        <span class="course-badge">محدث</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-video"></i> 35 فيديو</span>
+                            <span><i class="fas fa-clock"></i> 15 ساعة</span>
+                        </div>
+                        <h3>التصميم الجرافيكي الاحترافي</h3>
+                        <p>تعلم Photoshop و Illustrator لإنشاء تصاميم مبدعة</p>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                                <span class="rating-count">(890)</span>
+                            </div>
+                            <div class="course-price">279 ريال</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="marketing">
+                    <div class="course-image">
+                        <img src="https://via.placeholder.com/400x250/9C27B0/ffffff?text=Marketing" alt="دورة">
+                        <span class="course-badge">شائع</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-video"></i> 40 فيديو</span>
+                            <span><i class="fas fa-clock"></i> 18 ساعة</span>
+                        </div>
+                        <h3>التسويق الرقمي الشامل</h3>
+                        <p>احترف التسويق الإلكتروني ووسائل التواصل الاجتماعي</p>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.6</span>
+                                <span class="rating-count">(756)</span>
+                            </div>
+                            <div class="course-price">299 ريال</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="business">
+                    <div class="course-image">
+                        <img src="https://via.placeholder.com/400x250/E91E63/ffffff?text=Business" alt="دورة">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-video"></i> 50 فيديو</span>
+                            <span><i class="fas fa-clock"></i> 25 ساعة</span>
+                        </div>
+                        <h3>إدارة المشاريع الاحترافية</h3>
+                        <p>تعلم إدارة المشاريع باستخدام أفضل الأدوات والممارسات</p>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                                <span class="rating-count">(1,123)</span>
+                            </div>
+                            <div class="course-price">399 ريال</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="languages">
+                    <div class="course-image">
+                        <img src="https://via.placeholder.com/400x250/00BCD4/ffffff?text=English" alt="دورة">
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-video"></i> 80 فيديو</span>
+                            <span><i class="fas fa-clock"></i> 40 ساعة</span>
+                        </div>
+                        <h3>اللغة الإنجليزية من الصفر</h3>
+                        <p>دورة شاملة لتعلم اللغة الإنجليزية بطريقة سهلة وفعالة</p>
+                        <div class="course-footer">
+                            <div class="course-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="rating-count">(3,456)</span>
+                            </div>
+                            <div class="course-price">249 ريال</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <button class="btn btn-outline load-more-btn">تحميل المزيد</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>أكاديميتي</span>
+                    </div>
+                    <p>منصة تعليمية رائدة توفر أفضل المحتوى التعليمي في العالم العربي</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="videos.html">الفيديوهات</a></li>
+                        <li><a href="articles.html">المقالات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +966 XX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@academy.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 أكاديميتي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
